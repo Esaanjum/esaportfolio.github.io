@@ -1,0 +1,137 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>Data Analysis of MBTI Type</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+                            <h1>Data Analysis of MBTI Type</h1>
+                            <img src="/images/mbti analysis.png" alt=""/>
+
+							<p class="emPara">In this project, I have performed a simple Exploratory Data Analysis (EDA) to 
+                                find out top careers of 
+                                the MBTI personality type <strong>'ESFP'</strong> (nicknamed <em>The Entertainer</em>)
+							</p>
+                            <p class="emPara">
+                                The data was collected from <a href="https://www.personality-database.com/" target="_blank">personality database website</a> 
+                                which is a website that contains information related to personalities of famous people.
+                            </p>
+                        
+                            <p>Data is loaded with pandas from an excel file that contains all the personality types data:</p>
+                            <img src="/images/mbti analysis images/load from excel file.png" alt="">
+
+                            <br>
+                            <br>
+                            <p>Afterwards, the data cleaning part is followed. Encoding is normalized so that there are no invalid characters in our data.</p>
+                            <img src="/images/mbti analysis images/normalize encoding.png" alt="">
+
+                            <br>
+                            <br>
+                            <p>When viewing our data above, we see that there are similar careers that belong to one single category of careers.
+                                For example, <em>'Pop & Contemporary'</em> and <em>'Kpop'</em> belong to the same career i.e. <em>'Music'</em>. 
+                                We want to group all these careers together so that our final graph plots all the closely related careers as one. 
+                                To do that, I have taken help from ChatGPT to put similar careers together with their respective general categories
+                                 in a python dictionary and then use that dictionary to simplify the names.
+                            </p>
+                            <img src="/images/mbti analysis images/simplify career names.png" alt="">
+
+                            <br>
+                            <br>
+                            <span>Careers before generalizing names:
+                                <br>
+                                <img src="/images/mbti analysis images/distinct careers.png" alt="">
+                            </span>
+                            <br>
+                            <span>Careers after generalizing names:
+                                <br>
+                                <img src="/images/mbti analysis images/careers after generalizing.png" alt="">
+                            </span>
+
+                            <br>
+                            <br>
+                            <p>
+                               There were still some records of people present in vague categories. 
+                               So, I had to add them manually (ChatGPT comes to the resue once again!).
+                            </p>
+                            <img src="/images/mbti analysis images/individual careers.png" alt="">
+
+                            <br>
+                            <br>
+                            <p>
+                                Here, we drop the data that has fictional/mythological figures. For that, 
+                                I had already marked them for <strike>death</strike> removal with specific names.
+                            </p>
+                            <img src="/images/mbti analysis images/drop rows.png" alt="">
+
+                            <br>
+                            <br>
+                            <p>
+                                Finally, we save all the 3145 rows of data into an excel file.
+                            </p>
+                            <img src="/images/mbti analysis images/save data.png" alt="">
+
+                            <br>
+                            <br>
+                            <p>
+                                To plot a bar chart of <strong>percentage of mbti type</strong> vs <strong>career</strong>,
+                                I have created a script that can be reused for other personality types as well. Using that,
+                                we plot a bar chart of the top 5 careers found among the people of that personality type.
+                            </p>
+                            <img src="/images/mbti analysis images/code for bar chart.png" alt="">
+                            <img src="/images/mbti analysis images/bar chart esfp.png" alt="">
+
+                            <br>
+                            <br>
+                            <h6>
+                                Conclusion:
+                            </h6>
+                            <p>
+                                By seeing the chart above, we can conclude that an overwhelming majority (>95%) of 
+                                celebrities of the <em>'ESFP'</em> mbti type belong to the entertainment industry. 
+                                Interestingly, this result also justifies their title of being 
+                                <em>'The Entertainer'</em> type as well!
+                            </p>
+						</div>
+					</div>
+
+				<!-- Footer -->
+				<footer id="footer">
+					<div class="inner">
+						<section>
+							<h2>More projects comming soon!</h2>
+							<ul class="copyright">
+								<li>&copy; Esa Anjum. All rights reserved</li><li>
+							</ul>	
+						</section>
+						<section>
+							<h2>Follow</h2>
+							<ul class="icons">
+								<li><a href="https://github.com/Esaanjum" class="icon brands style2 fa-github"><span class="label">GitHub</span></a></li>
+								<li><a href="mailto:esaanjum14@gmail.com" class="icon solid style2 fa-envelope"><span class="label">Email</span></a></li>
+							</ul>
+						</section>
+					</div>
+				</footer>
+
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
